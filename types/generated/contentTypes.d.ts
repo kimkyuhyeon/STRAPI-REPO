@@ -402,7 +402,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::article.article'
     >;
-    goTo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    goToLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -430,29 +430,71 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiTest1Test1 extends Struct.CollectionTypeSchema {
-  collectionName: 'test1s';
+export interface ApiMainBannerMainBanner extends Struct.CollectionTypeSchema {
+  collectionName: 'main_banners';
   info: {
-    displayName: 'test1';
-    pluralName: 'test1s';
-    singularName: 'test1';
+    description: '';
+    displayName: '\uBA54\uC778 \uBC30\uB108 \uAD00\uB9AC';
+    pluralName: 'main-banners';
+    singularName: 'main-banner';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    contents: Schema.Attribute.Blocks;
-    cover: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    buttonField: Schema.Attribute.Component<'shared.button-field', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    displayDate: Schema.Attribute.Component<'shared.display-date', false>;
+    goToUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::test1.test1'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::main-banner.main-banner'
+    > &
       Schema.Attribute.Private;
+    mainThumbnailContainer: Schema.Attribute.Component<
+      'shared.main-thumbnail-container',
+      false
+    >;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
+    textColor: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTopBannerTopBanner extends Struct.CollectionTypeSchema {
+  collectionName: 'top_banners';
+  info: {
+    description: '';
+    displayName: '\uB760\uBC30\uB108 \uAD00\uB9AC';
+    pluralName: 'top-banners';
+    singularName: 'top-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayDate: Schema.Attribute.Component<'shared.display-date', false>;
+    goToLink: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::top-banner.top-banner'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    textColor: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -970,7 +1012,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
-      'api::test1.test1': ApiTest1Test1;
+      'api::main-banner.main-banner': ApiMainBannerMainBanner;
+      'api::top-banner.top-banner': ApiTopBannerTopBanner;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

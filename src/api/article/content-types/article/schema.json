@@ -85,9 +85,8 @@
         "shared.image-with-title"
       ]
     },
-    "goTo": {
-      "type": "boolean",
-      "default": false
+    "goToLink": {
+      "type": "string"
     }
   }
 }

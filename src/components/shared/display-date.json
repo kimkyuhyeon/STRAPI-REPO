@@ -1,7 +1,9 @@
 {
   "collectionName": "components_shared_display_dates",
   "info": {
-    "displayName": "displayDate"
+    "displayName": "노출 기간 설정",
+    "icon": "plus",
+    "description": ""
   },
   "options": {},
   "attributes": {

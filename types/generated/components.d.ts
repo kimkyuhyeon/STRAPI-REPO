@@ -1,31 +1,43 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedAsafasf extends Struct.ComponentSchema {
-  collectionName: 'components_shared_asafasfs';
+export interface SharedButtonField extends Struct.ComponentSchema {
+  collectionName: 'components_shared_button_fields';
   info: {
-    displayName: 'asafasf';
-  };
-  attributes: {};
-}
-
-export interface SharedAsgga extends Struct.ComponentSchema {
-  collectionName: 'components_shared_asggas';
-  info: {
-    displayName: 'asgga';
+    description: '';
+    displayName: 'buttonField';
+    icon: 'plus';
   };
   attributes: {
-    asga: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    firstButton: Schema.Attribute.Component<'shared.first-button', false>;
+    secondButton: Schema.Attribute.Component<'shared.second-button', false>;
   };
 }
 
 export interface SharedDisplayDate extends Struct.ComponentSchema {
   collectionName: 'components_shared_display_dates';
   info: {
-    displayName: 'displayDate';
+    description: '';
+    displayName: '\uB178\uCD9C \uAE30\uAC04 \uC124\uC815';
+    icon: 'plus';
   };
   attributes: {
     displayEndDate: Schema.Attribute.DateTime;
     displayStartDate: Schema.Attribute.DateTime;
+  };
+}
+
+export interface SharedFirstButton extends Struct.ComponentSchema {
+  collectionName: 'components_shared_first_buttons';
+  info: {
+    description: '';
+    displayName: 'firstButton';
+    icon: 'plus';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    textColor: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -46,83 +58,35 @@ export interface SharedImageWithTitle extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
-  info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedRelatedContent extends Struct.ComponentSchema {
-  collectionName: 'components_shared_related_contents';
-  info: {
-    displayName: 'relatedContent';
-  };
-  attributes: {};
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface SharedMainThumbnailContainer extends Struct.ComponentSchema {
+  collectionName: 'components_shared_main_thumbnail_containers';
   info: {
     description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
+    displayName: 'mainThumbnailContainer';
+    icon: 'stack';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    mobileMedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    pcMedia: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
   };
 }
 
-export interface SharedSearchTag extends Struct.ComponentSchema {
-  collectionName: 'components_shared_search_tags';
-  info: {
-    displayName: 'searchTag';
-  };
-  attributes: {
-    tag: Schema.Attribute.String;
-  };
-}
-
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface SharedSecondButton extends Struct.ComponentSchema {
+  collectionName: 'components_shared_second_buttons';
   info: {
     description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    displayName: 'secondButton';
+    icon: 'plus';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    bgColor: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    textColor: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -151,17 +115,12 @@ export interface SharedThumbnailContainer extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.asafasf': SharedAsafasf;
-      'shared.asgga': SharedAsgga;
+      'shared.button-field': SharedButtonField;
       'shared.display-date': SharedDisplayDate;
+      'shared.first-button': SharedFirstButton;
       'shared.image-with-title': SharedImageWithTitle;
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.related-content': SharedRelatedContent;
-      'shared.rich-text': SharedRichText;
-      'shared.search-tag': SharedSearchTag;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'shared.main-thumbnail-container': SharedMainThumbnailContainer;
+      'shared.second-button': SharedSecondButton;
       'shared.thumbnail-container': SharedThumbnailContainer;
     }
   }

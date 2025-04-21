@@ -1,8 +1,8 @@
 {
   "collectionName": "components_shared_",
   "info": {
-    "displayName": "스틱키 컨테이너",
-    "icon": "stack"
+    "displayName": "버튼 추가하기",
+    "icon": "arrowDown"
   },
   "options": {},
   "attributes": {}
