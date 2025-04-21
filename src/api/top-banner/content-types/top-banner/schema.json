@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "top_banners",
+  "info": {
+    "singularName": "top-banner",
+    "pluralName": "top-banners",
+    "displayName": "띠배너 관리",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "displayDate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.display-date"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "goToLink": {
+      "type": "string"
+    }
+  }
+}

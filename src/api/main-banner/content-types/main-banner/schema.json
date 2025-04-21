@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "main_banners",
+  "info": {
+    "singularName": "main-banner",
+    "pluralName": "main-banners",
+    "displayName": "메인 배너 관리",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "mainThumbnailContainer": {
+      "displayName": "mainThumbnailContainer",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.main-thumbnail-container"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "displayDate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.display-date"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "goToUrl": {
+      "type": "string"
+    },
+    "buttonField": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button-field"
+    }
+  }
+}

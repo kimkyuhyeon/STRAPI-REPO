@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_first_buttons",
+  "info": {
+    "displayName": "firstButton",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    }
+  }
+}

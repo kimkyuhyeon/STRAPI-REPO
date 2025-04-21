@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_second_buttons",
+  "info": {
+    "displayName": "secondButton",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    }
+  }
+}

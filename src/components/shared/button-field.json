@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_button_fields",
+  "info": {
+    "displayName": "buttonField",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstButton": {
+      "displayName": "firstButton",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.first-button"
+    },
+    "secondButton": {
+      "displayName": "secondButton",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.second-button"
+    }
+  }
+}
