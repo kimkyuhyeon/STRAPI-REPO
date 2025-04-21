@@ -74,10 +74,12 @@
       "type": "json"
     },
     "bgColor": {
-      "type": "string"
+      "type": "string",
+      "regex": "^[a-zA-Z0-9]+$"
     },
     "textColor": {
-      "type": "string"
+      "type": "string",
+      "regex": "^[a-zA-Z0-9]+$"
     },
     "contentsCompo": {
       "type": "dynamiczone",
