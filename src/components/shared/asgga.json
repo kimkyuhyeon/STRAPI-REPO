@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_asggas",
+  "info": {
+    "displayName": "asgga"
+  },
+  "options": {},
+  "attributes": {
+    "asga": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  }
+}

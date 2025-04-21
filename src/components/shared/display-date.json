@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_display_dates",
+  "info": {
+    "displayName": "displayDate"
+  },
+  "options": {},
+  "attributes": {
+    "displayStartDate": {
+      "type": "datetime"
+    },
+    "displayEndDate": {
+      "type": "datetime"
+    }
+  }
+}

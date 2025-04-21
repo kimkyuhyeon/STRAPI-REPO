@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
+    "displayName": "메인 컨텐츠 관리",
     "description": "Create your blog content"
   },
   "options": {
@@ -13,37 +13,81 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text",
-      "maxLength": 80
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+    "CKEditor": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     },
-    "author": {
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "thumbnailContainer": {
+      "displayName": "thumbnailContainer",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.thumbnail-container"
+    },
+    "preViewText": {
+      "type": "string"
+    },
+    "contentsType": {
+      "type": "enumeration",
+      "enum": [
+        "editorial",
+        "notice",
+        "event",
+        "campaign"
+      ],
+      "required": true
+    },
+    "displayDate": {
+      "displayName": "displayDate",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.display-date"
+    },
+    "pushContents": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "inversedBy": "drawContents"
     },
-    "category": {
+    "drawContents": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "pushContents"
     },
-    "blocks": {
+    "SearchTag": {
+      "type": "json"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "contentsCompo": {
       "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+      "components": [
+        "shared.image-with-title"
+      ]
+    },
+    "goTo": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
