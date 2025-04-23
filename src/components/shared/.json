@@ -1,9 +1,17 @@
 {
   "collectionName": "components_shared_",
   "info": {
-    "displayName": "버튼 추가하기",
-    "icon": "arrowDown"
+    "displayName": "이미지 슬라이더",
+    "icon": "plus"
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "imageSlider": {
+      "displayName": "imageSlider",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-slider",
+      "min": 2
+    }
+  }
 }

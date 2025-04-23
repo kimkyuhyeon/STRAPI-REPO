@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_image_sliders",
+  "info": {
+    "displayName": "이미지 슬라이드",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "altText": {
+      "type": "string"
+    }
+  }
+}

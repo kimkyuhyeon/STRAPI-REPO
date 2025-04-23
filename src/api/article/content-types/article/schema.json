@@ -84,7 +84,8 @@
     "contentsCompo": {
       "type": "dynamiczone",
       "components": [
-        "shared.image-with-title"
+        "shared.image-with-title",
+        "shared.image-slider"
       ]
     },
     "goToLink": {

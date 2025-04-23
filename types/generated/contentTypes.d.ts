@@ -389,7 +389,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
           preset: 'defaultHtml';
         }
       >;
-    contentsCompo: Schema.Attribute.DynamicZone<['shared.image-with-title']>;
+    contentsCompo: Schema.Attribute.DynamicZone<
+      ['shared.image-with-title', 'shared.image-slider']
+    >;
     contentsType: Schema.Attribute.Enumeration<
       ['editorial', 'notice', 'event', 'campaign']
     > &

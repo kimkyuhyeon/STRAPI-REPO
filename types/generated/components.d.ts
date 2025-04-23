@@ -41,6 +41,20 @@ export interface SharedFirstButton extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedImageSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_image_sliders';
+  info: {
+    description: '';
+    displayName: '\uC774\uBBF8\uC9C0 \uC2AC\uB77C\uC774\uB4DC';
+    icon: 'plus';
+  };
+  attributes: {
+    altText: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SharedImageWithTitle extends Struct.ComponentSchema {
   collectionName: 'components_shared_image_with_titles';
   info: {
@@ -95,6 +109,7 @@ export interface SharedThumbnailContainer extends Struct.ComponentSchema {
   info: {
     description: '';
     displayName: 'thumbnailContainer';
+    icon: 'stack';
   };
   attributes: {
     fixThumbnail: Schema.Attribute.Media<
@@ -118,6 +133,7 @@ declare module '@strapi/strapi' {
       'shared.button-field': SharedButtonField;
       'shared.display-date': SharedDisplayDate;
       'shared.first-button': SharedFirstButton;
+      'shared.image-slider': SharedImageSlider;
       'shared.image-with-title': SharedImageWithTitle;
       'shared.main-thumbnail-container': SharedMainThumbnailContainer;
       'shared.second-button': SharedSecondButton;
