@@ -104,6 +104,18 @@ export interface SharedSecondButton extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSlideMap extends Struct.ComponentSchema {
+  collectionName: 'components_shared_slide_maps';
+  info: {
+    description: '';
+    displayName: '\uC774\uBBF8\uC9C0 \uC2AC\uB77C\uC774\uB4DC \uCEF4\uD3EC\uB10C\uD2B8';
+    icon: 'plus';
+  };
+  attributes: {
+    Slider: Schema.Attribute.Component<'shared.image-slider', true>;
+  };
+}
+
 export interface SharedThumbnailContainer extends Struct.ComponentSchema {
   collectionName: 'components_shared_thumbnail_containers';
   info: {
@@ -137,6 +149,7 @@ declare module '@strapi/strapi' {
       'shared.image-with-title': SharedImageWithTitle;
       'shared.main-thumbnail-container': SharedMainThumbnailContainer;
       'shared.second-button': SharedSecondButton;
+      'shared.slide-map': SharedSlideMap;
       'shared.thumbnail-container': SharedThumbnailContainer;
     }
   }

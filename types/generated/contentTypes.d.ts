@@ -390,7 +390,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         }
       >;
     contentsCompo: Schema.Attribute.DynamicZone<
-      ['shared.image-with-title', 'shared.image-slider']
+      ['shared.image-with-title', 'shared.image-slider', 'shared.slide-map']
     >;
     contentsType: Schema.Attribute.Enumeration<
       ['editorial', 'notice', 'event', 'campaign']
@@ -424,7 +424,8 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     thumbnailContainer: Schema.Attribute.Component<
       'shared.thumbnail-container',
       false
-    >;
+    > &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

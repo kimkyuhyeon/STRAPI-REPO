@@ -37,7 +37,8 @@
       "displayName": "thumbnailContainer",
       "type": "component",
       "repeatable": false,
-      "component": "shared.thumbnail-container"
+      "component": "shared.thumbnail-container",
+      "required": true
     },
     "preViewText": {
       "type": "string"
@@ -85,7 +86,8 @@
       "type": "dynamiczone",
       "components": [
         "shared.image-with-title",
-        "shared.image-slider"
+        "shared.image-slider",
+        "shared.slide-map"
       ]
     },
     "goToLink": {

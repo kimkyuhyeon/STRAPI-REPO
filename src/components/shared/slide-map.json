@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_slide_maps",
+  "info": {
+    "displayName": "이미지 슬라이드 컴포넌트",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Slider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-slider"
+    }
+  }
+}
