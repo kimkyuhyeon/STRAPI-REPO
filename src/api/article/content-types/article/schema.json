@@ -87,7 +87,8 @@
       "components": [
         "shared.image-with-title",
         "shared.image-slider",
-        "shared.slide-map"
+        "shared.slide-map",
+        "shared.product-list"
       ]
     },
     "goToLink": {

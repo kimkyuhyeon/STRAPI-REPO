@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_product_lists",
+  "info": {
+    "displayName": "상품 리스트(상품 ID값 입력란)",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "productList": {
+      "type": "json"
+    }
+  }
+}

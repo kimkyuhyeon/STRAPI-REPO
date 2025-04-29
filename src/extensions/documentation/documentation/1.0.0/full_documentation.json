@@ -1,9 +1,8 @@
 {
-  "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "DOCUMENTATION",
-    "description": "",
+    "title": "웍스아웃 API 문서",
+    "description": "콘텐츠/배너/상품 관련 REST API 명세입니다.",
     "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
     "contact": {
       "name": "TEAM",
@@ -14,8 +13,31 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-04-24T03:00:02.780Z"
+    "x-generation-date": "2025-04-29T00:49:43.816Z"
   },
+  "tags": [
+    {
+      "name": "Articles",
+      "description": "에디토리얼/공지사항 등 콘텐츠 관련 API"
+    },
+    {
+      "name": "Users-Permissions - Auth",
+      "description": "Authentication endpoints",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html"
+      }
+    },
+    {
+      "name": "Users-Permissions - Users & Roles",
+      "description": "Users, roles, and permissions endpoints",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html"
+      }
+    }
+  ],
+  "openapi": "3.0.0",
   "x-strapi-config": {
     "plugins": [
       "upload",
@@ -24,7 +46,7 @@
   },
   "servers": [
     {
-      "url": "https://strapi-repo-vlrr.onrender.com/api",
+      "url": "http://localhost:1337/api",
       "description": "Development server"
     }
   ],
@@ -3100,6 +3122,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedSlideMapComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedProductListComponent"
                     }
                   ]
                 },
@@ -3108,7 +3133,8 @@
                   "mapping": {
                     "shared.image-with-title": "#/components/schemas/SharedImageWithTitleComponent",
                     "shared.image-slider": "#/components/schemas/SharedImageSliderComponent",
-                    "shared.slide-map": "#/components/schemas/SharedSlideMapComponent"
+                    "shared.slide-map": "#/components/schemas/SharedSlideMapComponent",
+                    "shared.product-list": "#/components/schemas/SharedProductListComponent"
                   }
                 }
               },
@@ -3304,6 +3330,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/SharedSlideMapComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedProductListComponent"
                       }
                     ]
                   },
@@ -3312,7 +3341,8 @@
                     "mapping": {
                       "shared.image-with-title": "#/components/schemas/SharedImageWithTitleComponent",
                       "shared.image-slider": "#/components/schemas/SharedImageSliderComponent",
-                      "shared.slide-map": "#/components/schemas/SharedSlideMapComponent"
+                      "shared.slide-map": "#/components/schemas/SharedSlideMapComponent",
+                      "shared.product-list": "#/components/schemas/SharedProductListComponent"
                     }
                   }
                 },
@@ -3406,6 +3436,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedSlideMapComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedProductListComponent"
                 }
               ]
             },
@@ -3414,7 +3447,8 @@
               "mapping": {
                 "shared.image-with-title": "#/components/schemas/SharedImageWithTitleComponent",
                 "shared.image-slider": "#/components/schemas/SharedImageSliderComponent",
-                "shared.slide-map": "#/components/schemas/SharedSlideMapComponent"
+                "shared.slide-map": "#/components/schemas/SharedSlideMapComponent",
+                "shared.product-list": "#/components/schemas/SharedProductListComponent"
               }
             }
           },
@@ -4338,6 +4372,21 @@
               "$ref": "#/components/schemas/SharedImageSliderComponent"
             }
           }
+        }
+      },
+      "SharedProductListComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "shared.product-list"
+            ]
+          },
+          "productList": {}
         }
       },
       "MainBannerRequest": {
@@ -5619,23 +5668,5 @@
         }
       }
     }
-  },
-  "tags": [
-    {
-      "name": "Users-Permissions - Auth",
-      "description": "Authentication endpoints",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html"
-      }
-    },
-    {
-      "name": "Users-Permissions - Users & Roles",
-      "description": "Users, roles, and permissions endpoints",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html"
-      }
-    }
-  ]
+  }
 }

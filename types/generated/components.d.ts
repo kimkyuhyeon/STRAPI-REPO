@@ -89,6 +89,18 @@ export interface SharedMainThumbnailContainer extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedProductList extends Struct.ComponentSchema {
+  collectionName: 'components_shared_product_lists';
+  info: {
+    description: '';
+    displayName: '\uC0C1\uD488 \uB9AC\uC2A4\uD2B8(\uC0C1\uD488 ID\uAC12 \uC785\uB825\uB780)';
+    icon: 'plus';
+  };
+  attributes: {
+    productList: Schema.Attribute.JSON;
+  };
+}
+
 export interface SharedSecondButton extends Struct.ComponentSchema {
   collectionName: 'components_shared_second_buttons';
   info: {
@@ -148,6 +160,7 @@ declare module '@strapi/strapi' {
       'shared.image-slider': SharedImageSlider;
       'shared.image-with-title': SharedImageWithTitle;
       'shared.main-thumbnail-container': SharedMainThumbnailContainer;
+      'shared.product-list': SharedProductList;
       'shared.second-button': SharedSecondButton;
       'shared.slide-map': SharedSlideMap;
       'shared.thumbnail-container': SharedThumbnailContainer;
