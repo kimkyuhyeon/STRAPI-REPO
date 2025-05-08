@@ -14,13 +14,13 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": false
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true
+      "required": false
     },
     "CKEditor": {
       "type": "customField",
@@ -38,7 +38,7 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.thumbnail-container",
-      "required": true
+      "required": false
     },
     "preViewText": {
       "type": "string"
@@ -46,12 +46,17 @@
     "contentsType": {
       "type": "enumeration",
       "enum": [
+        "CARHARTT_JOURNAL",
+        "CARHARTT",
+        "WORKSOUT",
+        "event",
         "editorial",
         "notice",
-        "event",
-        "campaign"
+        "DEUS_JOURNAL",
+        "DEUS_CATEGORY_CONTENT",
+        "DEUS"
       ],
-      "required": true
+      "required": false
     },
     "displayDate": {
       "displayName": "displayDate",
@@ -76,11 +81,11 @@
     },
     "bgColor": {
       "type": "string",
-      "regex": "^[a-zA-Z0-9]+$"
+      "default": "#FFFFFF"
     },
     "textColor": {
       "type": "string",
-      "regex": "^[a-zA-Z0-9]+$"
+      "default": "#000000"
     },
     "contentsCompo": {
       "type": "dynamiczone",

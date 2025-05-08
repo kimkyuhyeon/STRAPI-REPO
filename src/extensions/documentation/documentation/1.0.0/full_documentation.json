@@ -13,7 +13,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-04-29T00:49:43.816Z"
+    "x-generation-date": "2025-05-08T08:43:53.758Z"
   },
   "tags": [
     {
@@ -3037,12 +3037,6 @@
         ],
         "properties": {
           "data": {
-            "required": [
-              "title",
-              "slug",
-              "thumbnailContainer",
-              "contentsType"
-            ],
             "type": "object",
             "properties": {
               "title": {
@@ -3066,10 +3060,15 @@
               "contentsType": {
                 "type": "string",
                 "enum": [
+                  "CARHARTT_JOURNAL",
+                  "CARHARTT",
+                  "WORKSOUT",
+                  "event",
                   "editorial",
                   "notice",
-                  "event",
-                  "campaign"
+                  "DEUS_JOURNAL",
+                  "DEUS_CATEGORY_CONTENT",
+                  "DEUS"
                 ]
               },
               "displayDate": {
@@ -3199,12 +3198,6 @@
       },
       "Article": {
         "type": "object",
-        "required": [
-          "title",
-          "slug",
-          "thumbnailContainer",
-          "contentsType"
-        ],
         "properties": {
           "id": {
             "type": "number"
@@ -3233,10 +3226,15 @@
           "contentsType": {
             "type": "string",
             "enum": [
+              "CARHARTT_JOURNAL",
+              "CARHARTT",
+              "WORKSOUT",
+              "event",
               "editorial",
               "notice",
-              "event",
-              "campaign"
+              "DEUS_JOURNAL",
+              "DEUS_CATEGORY_CONTENT",
+              "DEUS"
             ]
           },
           "displayDate": {
@@ -3274,10 +3272,15 @@
                 "contentsType": {
                   "type": "string",
                   "enum": [
+                    "CARHARTT_JOURNAL",
+                    "CARHARTT",
+                    "WORKSOUT",
+                    "event",
                     "editorial",
                     "notice",
-                    "event",
-                    "campaign"
+                    "DEUS_JOURNAL",
+                    "DEUS_CATEGORY_CONTENT",
+                    "DEUS"
                   ]
                 },
                 "displayDate": {

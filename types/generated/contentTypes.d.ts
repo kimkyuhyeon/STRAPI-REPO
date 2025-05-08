@@ -381,7 +381,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    bgColor: Schema.Attribute.String;
+    bgColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#FFFFFF'>;
     CKEditor: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -398,9 +398,18 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       ]
     >;
     contentsType: Schema.Attribute.Enumeration<
-      ['editorial', 'notice', 'event', 'campaign']
-    > &
-      Schema.Attribute.Required;
+      [
+        'CARHARTT_JOURNAL',
+        'CARHARTT',
+        'WORKSOUT',
+        'event',
+        'editorial',
+        'notice',
+        'DEUS_JOURNAL',
+        'DEUS_CATEGORY_CONTENT',
+        'DEUS',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -424,14 +433,13 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     >;
     SearchTag: Schema.Attribute.JSON;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    textColor: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'>;
+    textColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#000000'>;
     thumbnailContainer: Schema.Attribute.Component<
       'shared.thumbnail-container',
       false
-    > &
-      Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    >;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
