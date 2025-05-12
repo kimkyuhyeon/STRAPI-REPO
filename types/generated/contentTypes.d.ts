@@ -433,7 +433,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     >;
     SearchTag: Schema.Attribute.JSON;
-    slug: Schema.Attribute.UID<'title'>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     textColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#000000'>;
     thumbnailContainer: Schema.Attribute.Component<
       'shared.thumbnail-container',
@@ -458,6 +458,7 @@ export interface ApiMainBannerMainBanner extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    bgColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#000'>;
     buttonField: Schema.Attribute.Component<'shared.button-field', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -476,8 +477,8 @@ export interface ApiMainBannerMainBanner extends Struct.CollectionTypeSchema {
     >;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    textColor: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    textColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#000'>;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -511,6 +512,13 @@ export interface ApiTopBannerTopBanner extends Struct.CollectionTypeSchema {
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     textColor: Schema.Attribute.String;
+    textEditor: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

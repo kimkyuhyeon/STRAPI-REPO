@@ -19,10 +19,11 @@
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "textColor": {
-      "type": "string"
+      "type": "string",
+      "default": "#000"
     },
     "displayDate": {
       "type": "component",
@@ -40,6 +41,10 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.button-field"
+    },
+    "bgColor": {
+      "type": "string",
+      "default": "#000"
     }
   }
 }

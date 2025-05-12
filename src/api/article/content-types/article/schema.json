@@ -20,7 +20,7 @@
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": false
+      "required": true
     },
     "CKEditor": {
       "type": "customField",

@@ -2,7 +2,7 @@
   "info": {
     "version": "1.0.0",
     "title": "웍스아웃 API 문서",
-    "description": "콘텐츠/배너/상품 관련 REST API 명세입니다.",
+    "description": "\n# Worksout Strapi API 사용 가이드\n\n## ✅ 공통 사용법\n\n- 모든 API 호출은 **REST GET 방식**으로 사용합니다.\n- 필수적으로 **populate 쿼리**를 사용해 연관 미디어, 버튼, 슬라이더 등을 포함하여 호출해야 합니다.\n- **잘못된 populate 쿼리 사용 시 400 오류가 발생합니다.**\n\n---\n\n## 메인 배너 API 호출 예시\n\n```\nGET /api/main-banners?populate[mainThumbnailContainer][populate][pcMedia]=true&populate[mainThumbnailContainer][populate][mobileMedia]=true&populate[buttonField][populate][firstButton]=true\n```\n\n- `mainThumbnailContainer` 내 `pcMedia`, `mobileMedia` 포함\n- `buttonField` 내 `firstButton` 포함\n- 반드시 `true` 값 사용 (잘못된 키 입력 시 400 오류)\n\n---\n\n## 띠배너 API 호출 예시\n\n```\nGET /api/top-banners?populate=displayDate\n```\n\n- 띠배너의 노출 기간 정보 `displayDate` 포함\n\n---\n\n## 콘텐츠 목록 API 호출 예시\n\n```\nGET /api/articles?populate[contentsCompo][on][shared.image-with-title][populate]=Image&populate[contentsCompo][on][shared.slide-map][populate]=image&pagination[page]=1&pagination[pageSize]=10&sort=publishedAt:desc\n```\n\n- Dynamic Zone 내 특정 컴포넌트만 선별적으로 populate\n- 페이지네이션, 소팅 가능\n- `filters` 사용 시:\n```\nfilters[category][$eq]=EDITORIAL\n```\n\n---\n\n## 주의 사항\n\n- `populate` 쿼리 키는 **Strapi Admin에 정의된 컴포넌트 명칭 그대로 사용**\n- URL 인코딩 자동 처리됨 (예: `[]` → `%5B%5D`)\n- 퍼블릭 권한 없이 호출 시 **403 오류 발생** → 반드시 권한 확인\n- 대량 호출 시 `pagination` 필수 사용 권장 (기본 25개)\n\n---\n                ",
     "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
     "contact": {
       "name": "TEAM",
@@ -13,12 +13,20 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-08T08:43:53.758Z"
+    "x-generation-date": "2025-05-12T07:22:56.755Z"
   },
   "tags": [
     {
       "name": "Articles",
       "description": "에디토리얼/공지사항 등 콘텐츠 관련 API"
+    },
+    {
+      "name": "Main Banners",
+      "description": "메인 배너 관리 API"
+    },
+    {
+      "name": "Top Banners",
+      "description": "띠배너 관리 API"
     },
     {
       "name": "Users-Permissions - Auth",
@@ -3037,6 +3045,9 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "slug"
+            ],
             "type": "object",
             "properties": {
               "title": {
@@ -3198,6 +3209,9 @@
       },
       "Article": {
         "type": "object",
+        "required": [
+          "slug"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -4399,9 +4413,6 @@
         ],
         "properties": {
           "data": {
-            "required": [
-              "title"
-            ],
             "type": "object",
             "properties": {
               "mainThumbnailContainer": {
@@ -4424,6 +4435,9 @@
               },
               "buttonField": {
                 "$ref": "#/components/schemas/SharedButtonFieldComponent"
+              },
+              "bgColor": {
+                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -4483,9 +4497,6 @@
       },
       "MainBanner": {
         "type": "object",
-        "required": [
-          "title"
-        ],
         "properties": {
           "id": {
             "type": "number"
@@ -4513,6 +4524,9 @@
           },
           "buttonField": {
             "$ref": "#/components/schemas/SharedButtonFieldComponent"
+          },
+          "bgColor": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -4582,6 +4596,9 @@
                 },
                 "buttonField": {
                   "$ref": "#/components/schemas/SharedButtonFieldComponent"
+                },
+                "bgColor": {
+                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
@@ -4997,6 +5014,9 @@
               "goToLink": {
                 "type": "string"
               },
+              "textEditor": {
+                "type": "string"
+              },
               "locale": {
                 "type": "string"
               },
@@ -5078,6 +5098,9 @@
             "type": "integer"
           },
           "goToLink": {
+            "type": "string"
+          },
+          "textEditor": {
             "type": "string"
           },
           "createdAt": {
@@ -5396,6 +5419,9 @@
                   "type": "integer"
                 },
                 "goToLink": {
+                  "type": "string"
+                },
+                "textEditor": {
                   "type": "string"
                 },
                 "createdAt": {
